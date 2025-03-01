@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS Authors (
     author_id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
-    birth_year INTEGER NOT NULL,
+    birth_year INTEGER NOT NULL CHECK(birth_year > 0),
     nationality TEXT NOT NULL,
     UNIQUE (first_name, last_name, birth_year, nationality)
 );
