@@ -1,5 +1,5 @@
 --- Create Books Table
-CREATE TABLE Books (
+CREATE TABLE IF NOT EXISTS Books (
     book_id INTEGER PRIMARY KEY AUTOINCREMENT, 
     title TEXT NOT NULL,
     author_id INTEGER NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE Books (
 
 
 --- Create Patrons Table
-CREATE TABLE Patrons (
+CREATE TABLE IF NOT EXISTS Patrons (
     patron_id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name VARCHAR(50)NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Patrons (
 
 --- Create Loans Table 
 
-CREATE TABLE Loans (
+CREATE TABLE IF NOT EXISTS Loans (
     loan_id INTEGER PRIMARY KEY AUTOINCREMENT,
     book_id INTEGER NOT NULL,
     patron_id INTEGER NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE Loans (
 );
 --- Create Authors Table 
 
-CREATE TABLE Authors (
+CREATE TABLE IF NOT EXISTS Authors (
     author_id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name 	VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -50,10 +50,12 @@ CREATE TABLE Authors (
     nationality VARCHAR(50)
 );
 
-CREATE TABLE Genres (
+CREATE TABLE IF NOT EXISTS Genres (
     genre_id INTEGER PRIMARY KEY AUTOINCREMENT,
     genre_name VARCHAR(50) UNIQUE NOT NULL,
     genre_description TEXT
+    genre_popularity INTEGER NOT NULL,
+    genre_created TEXT NOT NULL DEFAULT (date('now'))
 
 );
 
