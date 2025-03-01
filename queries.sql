@@ -64,17 +64,37 @@ GROUP BY
 ORDER BY
     average_book_age DESC;
 
-
 --- 14. Complex Filtering
-SELECT 
+SELECT
     b.book_id,
     b.title,
     b.year_published
-FROM 
+FROM
     books b
-WHERE 
-    b.book_id NOT IN (SELECT book_id FROM loans)
-    AND
-    b.year_published < (SELECT AVG(year_published) FROM books)
-ORDER BY 
+WHERE
+    b.book_id NOT IN (
+        SELECT
+            book_id
+        FROM
+            loans
+    )
+    AND b.year_published < (
+        SELECT
+            AVG(year_published)
+        FROM
+            books
+    )
+ORDER BY
     b.year_published;
+
+--- 15. Conditional Aggregation
+SELECT
+    p.patron_id,
+    (p.first_name || ' ' || p.last_name) AS full_name,
+    count(CASE WHEN b.year_published > 2010 THEN 1 END) AS total_books_published_after_2010
+FROM
+    patrons p
+    JOIN loans l ON p.patron_id = l.patron_id
+    JOIN books b ON l.book_id = b.book_id
+GROUP BY
+    p.patron_id;
