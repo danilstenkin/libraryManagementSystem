@@ -91,10 +91,26 @@ ORDER BY
 SELECT
     p.patron_id,
     (p.first_name || ' ' || p.last_name) AS full_name,
-    count(CASE WHEN b.year_published > 2010 THEN 1 END) AS total_books_published_after_2010
+    count(
+        CASE
+            WHEN b.year_published > 2010 THEN 1
+        END
+    ) AS total_books_published_after_2010
 FROM
     patrons p
     JOIN loans l ON p.patron_id = l.patron_id
     JOIN books b ON l.book_id = b.book_id
 GROUP BY
     p.patron_id;
+
+--- 16. Subqueries in SELECT Clause
+SELECT 
+    b.book_id, 
+    b.title, 
+    COUNT(l.book_id) AS number_of_times_borrowed
+FROM 
+    books b
+JOIN 
+    loans l ON b.book_id = l.book_id
+GROUP BY 
+    b.book_id, b.title;
