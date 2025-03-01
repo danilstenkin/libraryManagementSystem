@@ -131,3 +131,25 @@ WHERE
 ORDER BY 
     a.last_name;
 
+
+--- 18. Date Calculations
+
+SELECT 
+    l.loan_id,
+    b.title AS book_title,
+    p.first_name || ' ' || p.last_name AS patron_name,
+    l.due_date,
+    julianday('now') - julianday(l.due_date) AS days_overdue
+FROM 
+    LOANS l
+JOIN 
+    BOOKS b ON l.book_id = b.book_id
+JOIN 
+    PATRONS p ON l.patron_id = p.patron_id
+WHERE 
+    l.return_date IS NULL
+    AND
+    julianday('now') - julianday(l.due_date) > 30
+ORDER BY 
+    days_overdue DESC;
+
