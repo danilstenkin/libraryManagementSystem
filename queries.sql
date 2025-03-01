@@ -63,3 +63,18 @@ GROUP BY
     a.author_id
 ORDER BY
     average_book_age DESC;
+
+
+--- 14. Complex Filtering
+SELECT 
+    b.book_id,
+    b.title,
+    b.year_published
+FROM 
+    books b
+WHERE 
+    b.book_id NOT IN (SELECT book_id FROM loans)
+    AND
+    b.year_published < (SELECT AVG(year_published) FROM books)
+ORDER BY 
+    b.year_published;
