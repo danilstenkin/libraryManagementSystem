@@ -133,7 +133,6 @@ ORDER BY
 
 
 --- 18. Date Calculations
-
 SELECT 
     l.loan_id,
     b.title AS book_title,
@@ -153,3 +152,28 @@ WHERE
 ORDER BY 
     days_overdue DESC;
 
+--- 20. Nested Subqueries and Aggregation
+SELECT 
+    p.patron_id,
+    p.first_name || ' ' || p.last_name AS patron_name,
+    COUNT(l.loan_id) AS books_borrowed
+FROM 
+    PATRONS p
+JOIN 
+    LOANS l ON p.patron_id = l.patron_id
+GROUP BY 
+    p.patron_id
+HAVING 
+    COUNT(l.loan_id) > (
+        SELECT AVG(books_per_patron)
+        FROM (
+            SELECT 
+                COUNT(loan_id) AS books_per_patron
+            FROM 
+                LOANS
+            GROUP BY 
+                patron_id
+        )
+    )
+ORDER BY 
+    books_borrowed DESC;
