@@ -36,7 +36,7 @@ INSERT INTO Authors (first_name, last_name, birth_year, nationality) VALUES
 ('Charles', 'Dickens', 1812, 'British'),
 ('Agatha', 'Christie', 1890, 'British'),
 ('Franz', 'Kafka', 1883, 'Austrian'),
-('Homer', 'Unknown', -800, 'Greek'),
+('Homer', 'Unknown', 1800, 'Greek'),
 ('Dante', 'Alighieri', 1265, 'Italian'),
 ('William', 'Shakespeare', 1564, 'British'),
 ('Miguel', 'de Cervantes', 1547, 'Spanish'),
