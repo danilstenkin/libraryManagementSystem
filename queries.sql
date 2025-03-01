@@ -114,3 +114,20 @@ JOIN
     loans l ON b.book_id = l.book_id
 GROUP BY 
     b.book_id, b.title;
+
+--- 17. Advanced Pattern Matching
+SELECT DISTINCT
+    a.author_id,
+    a.first_name,
+    a.last_name
+FROM 
+    authors a
+JOIN 
+    books b ON a.author_id = b.author_id
+WHERE 
+    a.last_name LIKE '%son%'
+    AND
+    b.title LIKE '%Data%'
+ORDER BY 
+    a.last_name;
+
