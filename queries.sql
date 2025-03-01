@@ -152,6 +152,21 @@ WHERE
 ORDER BY 
     days_overdue DESC;
 
+--- 19. Combined Aggregate Functions
+SELECT 
+    g.genre_id,
+    g.genre_name,
+    AVG(2025 - b.year_published) AS average_book_age
+FROM 
+    genres g
+JOIN 
+    books b ON g.genre_id = b.genre_id
+GROUP BY 
+    g.genre_id
+ORDER BY 
+    average_book_age DESC
+LIMIT 1;
+
 --- 20. Nested Subqueries and Aggregation
 SELECT 
     p.patron_id,
