@@ -85,7 +85,6 @@ CREATE TABLE IF NOT EXISTS Genres (
 );
 ```
 
-
 ## Sample Data
 
 ### **Insert Sample Books**
@@ -136,9 +135,6 @@ INSERT INTO Patrons (patron_id, first_name, last_name, email, phone) VALUES (3, 
 INSERT INTO Loans (loan_id, book_id, patron_id, loan_date, return_date) VALUES (3, 99, 1, '2025-02-03', NULL);
 -- Expected: Error due to book_id not existing in Books table.
 ```
-
-## Authors
-**Your Name** - Library Database Developer
 
 ## License
 This project is licensed under the MIT License.
