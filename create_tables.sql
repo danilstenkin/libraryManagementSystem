@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS Books (
     title TEXT NOT NULL,
     author_id INTEGER NOT NULL,
     genre_id INTEGER NOT NULL,
-    year_published INTEGER NOT NULL, -- В SQLite нет YEAR, заменяем на INTEGER
+    year_published INTEGER NOT NULL,
     language TEXT NOT NULL DEFAULT 'English'
         CHECK (language IN ('English', 'Russian', 'French', 'Spanish', 'German', 'Chinese', 'Japanese', 
                             'Kazakh', 'Italian', 'Portuguese', 'Arabic', 'Turkish', 'Hindi', 'Korean', 
@@ -13,9 +13,10 @@ CREATE TABLE IF NOT EXISTS Books (
                             'Norwegian', 'Malay', 'Filipino', 'Serbian', 'Slovak', 'Bulgarian', 'Croatian', 
                             'Persian', 'Tamil', 'Urdu', 'Bengali', 'Swahili', 'Afrikaans', 'Georgian', 'Lithuanian', 
                             'Latvian', 'Slovenian', 'Mongolian', 'Armenian', 'Estonian', 'Albanian', 'Macedonian')),
-    UNIQUE (title, language) -- Запрещает дублирование книг с одинаковым названием и языком
+    UNIQUE (title, language),
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id) ON DELETE CASCADE, 
+    FOREIGN KEY (genre_id) REFERENCES Genres(genre_id) ON DELETE SET NULL
 );
-
 
 --- Create Patrons Table
 CREATE TABLE IF NOT EXISTS Patrons (
@@ -30,34 +31,36 @@ CREATE TABLE IF NOT EXISTS Patrons (
 );
 
 --- Create Loans Table 
-
 CREATE TABLE IF NOT EXISTS Loans (
     loan_id INTEGER PRIMARY KEY AUTOINCREMENT,
     book_id INTEGER NOT NULL,
     patron_id INTEGER NOT NULL,
-    loan_period_days INTEGER NOT NULL CHECK (loan_period_days BETWEEN 1 AND 30), -- Количество дней аренды (не может быть отрицательным)
-    loan_date TEXT NOT NULL DEFAULT (date('now')), -- Дата выдачи (по умолчанию сегодня)
-    due_date TEXT NOT NULL GENERATED ALWAYS AS (date(loan_date, '+' || loan_period_days || ' days')) VIRTUAL, -- Автоматический расчёт даты возврата
-    return_date TEXT -- Фактическая дата возврата (может быть NULL)
+    loan_period_days INTEGER NOT NULL CHECK (loan_period_days BETWEEN 1 AND 30),
+    loan_date TEXT NOT NULL DEFAULT (date('now')),
+    due_date TEXT NOT NULL GENERATED ALWAYS AS (date(loan_date, '+' || loan_period_days || ' days')) VIRTUAL, 
+    return_date TEXT,
+    FOREIGN KEY (book_id) REFERENCES Books(book_id) ON DELETE CASCADE, 
+    FOREIGN KEY (patron_id) REFERENCES Patrons(patron_id) ON DELETE CASCADE 
 );
---- Create Authors Table 
 
+--- Create Authors Table 
 CREATE TABLE IF NOT EXISTS Authors (
     author_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    first_name 	VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    birth_year YEAR,
-    nationality VARCHAR(50)
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    birth_year INTEGER NOT NULL,
+    nationality TEXT NOT NULL,
+    UNIQUE (first_name, last_name, birth_year, nationality)
 );
 
 CREATE TABLE IF NOT EXISTS Genres (
     genre_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    genre_name VARCHAR(50) UNIQUE NOT NULL,
-    genre_description TEXT
+    genre_name TEXT UNIQUE NOT NULL,
+    genre_description TEXT,
     genre_popularity INTEGER NOT NULL,
     genre_created TEXT NOT NULL DEFAULT (date('now'))
-
 );
+
 
 ---            Связи между таблицами
 
