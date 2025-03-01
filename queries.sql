@@ -50,3 +50,16 @@ HAVING
         WHERE
             b2.genre_id = g.genre_id
     );
+
+--- 13. Nested Aggregates
+SELECT
+    a.author_id,
+    a.first_name || ' ' || a.last_name AS author_name,
+    AVG(2025 - b.year_published) AS average_book_age
+FROM
+    AUTHORS a
+    JOIN BOOKS b ON a.author_id = b.author_id
+GROUP BY
+    a.author_id
+ORDER BY
+    average_book_age DESC;
