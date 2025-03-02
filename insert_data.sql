@@ -102,7 +102,8 @@ INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('Mastering Data Structures', 26, 19, 2015, 'English'),
 ('Big Data and Machine Learning', 27, 2, 2018, 'English'),
 ('Data Science for Beginners', 28, 19, 2020, 'English'),
-('Efficient Data Processing', 29 19, 2016, 'English');
+('Efficient Data Processing', 29 19, 2016, 'English'),
+('Nimitz Class', 30, 17, 1997, 'English');
 
 
 INSERT INTO Patrons (first_name, last_name, email, phone) VALUES
@@ -135,3 +136,4 @@ INSERT INTO Loans (book_id, patron_id, loan_period_days) VALUES
 (29, 1, 30), (30, 1, 30), (31, 1, 30), (32, 4, 15), (34, 4, 20),
 (35, 4, 22), (33, 1, 30), (36, 3, 5), (37, 3, 10), (28, 1, 25),
 (27, 3, 20), (26, 3, 16), (25, 4, 5), (24, 1, 13), (23, 4, 10);
+
