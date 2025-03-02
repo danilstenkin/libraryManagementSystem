@@ -1,0 +1,164 @@
+-> Basic SELECT Queries:
+
+SELECT
+    *
+FROM
+    Books;
+--------------------------------------------------------------------------------------------------------
+book_id     title                                     author_id   genre_id    year_published  language  
+----------  ----------------------------------------  ----------  ----------  --------------  ----------
+1           1984                                      2           19          1949            English   
+2           To Kill a Mockingbird                     3           4           1960            English   
+3           Harry Potter and the Sorcerers Stone      1           6           1997            English   
+4           War and Peace                             4           5           1869            Russian   
+5           Pride and Prejudice                       5           3           1813            English   
+6           One Hundred Years of Solitude             6           1           1967            Spanish   
+7           The Adventures of Tom Sawyer              7           13          1876            English   
+8           Crime and Punishment                      8           19          1866            Russian   
+9           The Old Man and the Sea                   9           14          1952            English   
+10          Les Misérables                            10          5           1862            French    
+11          Great Expectations                        11          3           1861            English   
+12          Murder on the Orient Express              12          4           1934            English   
+13          The Trial                                 13          18          1925            German    
+14          The Iliad                                 14          17          -760            Greek     
+15          The Divine Comedy                         15          15          1320            Italian   
+16          Hamlet                                    16          16          1603            English   
+17          Don Quixote                               17          1           1605            Spanish   
+18          Twenty Thousand Leagues Under the Sea     18          2           1870            French    
+19          A Study in Scarlet                        19          4           1887            English   
+20          The Raven                                 20          9           1845            English   
+_______________________________________________________________________________________________________
+
+SELECT
+    title,
+    year_published
+FROM
+    Books;
+---------------------------
+title       year_published                          
+----------  ---------------
+1984        1949                                    
+To Kill a   1960                                    
+Harry Pott  1997                                    
+War and Pe  1869                                    
+Pride and   1813                                    
+One Hundre  1967                                    
+The Advent  1876                                    
+Crime and   1866                                    
+The Old Ma  1952                                    
+Les Miséra  1862                                    
+Great Expe  1861                                    
+Murder on   1934                                    
+The Trial   1925                                    
+The Iliad   -760                                    
+The Divine  1320                                    
+Hamlet      1603                                    
+Don Quixot  1605                                    
+Twenty Tho  1870                                    
+A Study in  1887                                    
+The Raven   1845 
+_______________________________________________________________________________________________________
+
+-> Column Operations and Aliases:
+
+SELECT
+    first_name || ' ' || last_name AS "full_name"
+FROM
+    Patrons;
+
+-------------
+full_name    
+-------------
+Alice Johnson
+Bob Smith    
+Charlie Brown
+Diana Prince 
+Ethan Hunt   
+Fiona Davis  
+George Clark 
+Hannah Miller
+Ian Wright   
+Julia Roberts
+Kevin Anderso
+Laura Wilson 
+Michael Scott
+Nancy Drew   
+Oliver Twist 
+Paula Jones  
+Quincy Adams 
+Rebecca Black
+Samuel Landon
+Tina Turner  
+Someone New 
+_______________________________________________________________________________________________________
+
+SELECT
+    book_id,
+    title,
+    year_published,
+    (strftime('%Y', 'now') - year_published) AS "book_age"
+FROM
+    Books;
+
+--------------------------------------------------------------------------------
+book_id     title                                     year_published  book_age  
+----------  ----------------------------------------  --------------  ----------
+1           1984                                      1949            76        
+2           To Kill a Mockingbird                     1960            65        
+3           Harry Potter and the Sorcerers Stone      1997            28        
+4           War and Peace                             1869            156       
+5           Pride and Prejudice                       1813            212       
+6           One Hundred Years of Solitude             1967            58        
+7           The Adventures of Tom Sawyer              1876            149       
+8           Crime and Punishment                      1866            159       
+9           The Old Man and the Sea                   1952            73        
+10          Les Misérables                            1862            163       
+11          Great Expectations                        1861            164       
+12          Murder on the Orient Express              1934            91        
+13          The Trial                                 1925            100       
+14          The Iliad                                 -760            2785      
+15          The Divine Comedy                         1320            705       
+16          Hamlet                                    1603            422       
+17          Don Quixote                               1605            420       
+18          Twenty Thousand Leagues Under the Sea     1870            155       
+19          A Study in Scarlet                        1887            138       
+20          The Raven                                 1845            180  
+_______________________________________________________________________________________________________
+
+-> Filtering Data
+
+SELECT
+    book_id,
+    title
+FROM
+    Books
+WHERE
+    year_published > 2000;
+
+----------------------------------------------------
+book_id     title                                   
+----------  ----------------------------------------
+21          The Silent Patient                      
+22          Project Hail Mary                       
+23          The Midnight Library                    
+24          Where the Crawdads Sing                 
+25          Sapiens: A Brief History of Humankind   
+26          Cien años de soledad                    
+27          El laberinto de los espíritus           
+28          Le Petit Prince  
+_______________________________________________________________________________________________________
+
+SELECT
+    patron_id,
+    first_name,
+    last_name
+FROM
+    Patrons
+WHERE
+    last_name = 'Smith';
+
+----------------------------------
+patron_id   first_name  last_name 
+----------  ----------  ----------
+2           Bob         Smith 
+_______________________________________________________________________________________________________
