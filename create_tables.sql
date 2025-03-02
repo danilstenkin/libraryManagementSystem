@@ -68,3 +68,17 @@ CREATE TABLE IF NOT EXISTS Genres (
 --- Books → genre_id (ссылается на Genres.genre_id).
 --- Loans → book_id (ссылается на Books.book_id).
 --- Loans → patron_id (ссылается на Patrons.patron_id).
+
+-- Books table indexes
+CREATE INDEX idx_books_year_published ON Books(year_published);
+CREATE INDEX idx_books_title ON Books(title);
+CREATE INDEX idx_books_author_id ON Books(author_id);
+
+-- Patrons table indexes
+CREATE INDEX idx_patrons_last_name ON Patrons(last_name);
+CREATE INDEX idx_patrons_email ON Patrons(email);
+CREATE INDEX idx_patrons_first_name ON Patrons(first_name);
+
+-- Loans table indexes
+CREATE INDEX idx_loans_patron_id ON Loans(patron_id);
+CREATE INDEX idx_loans_book_id ON Loans(book_id);
