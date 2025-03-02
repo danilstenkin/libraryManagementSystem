@@ -244,7 +244,7 @@ patron_id   first_name  last_name
 
 _______________________________________________________________________________________________________
 
--- Unique Values:
+-> Unique Values:
 
 SELECT
     DISTINCT g.genre_id,
@@ -275,3 +275,96 @@ genre_id    genre_name
 7           Thriller                      
 17          War 
 _______________________________________________________________________________________________________
+
+-> Aggregate Functions:
+
+SELECT
+    count(book_id) AS "total_number_of_books"
+FROM
+    Books;
+
+---------------------
+total_number_of_books
+---------------------
+28 
+_______________________________________________________________________________________________________
+
+SELECT
+    book_id,
+    title AS "oldest_book",
+    year_published
+FROM
+    Books
+WHERE
+    year_published = (
+        SELECT
+            MIN(year_published)
+        FROM
+            Books
+    )
+LIMIT
+    1;
+
+----------------------------------------------------------
+book_id     oldest_book                     year_published
+----------  ------------------------------  --------------
+14          The Iliad                       -760     
+_______________________________________________________________________________________________________
+
+-> Grouping Operations:
+
+SELECT
+    a.author_id,
+    a.last_name,
+    a.first_name,
+    COUNT(*) AS book_count
+FROM
+    Books b
+    JOIN Authors a ON b.author_id = a.author_id
+GROUP BY
+    b.author_id
+ORDER BY
+    book_count DESC;
+
+------------------------------------------------------------------
+author_id   last_name                       first_name  book_count
+----------  ------------------------------  ----------  ----------
+8           Dostoevsky                      Fyodor      2         
+7           Twain                           Mark        2         
+6           García Márquez                  Gabriel     2         
+5           Austen                          Jane        2         
+4           Tolstoy                         Leo         2         
+3           Lee                             Harper      2         
+2           Orwell                          George      2         
+1           Rowling                         J.K.        2         
+20          Poe                             Edgar       1         
+19          Conan Doyle                     Arthur      1         
+18          Verne                           Jules       1         
+17          de Cervantes                    Miguel      1         
+16          Shakespeare                     William     1         
+15          Alighieri                       Dante       1         
+14          Unknown                         Homer       1         
+13          Kafka                           Franz       1         
+12          Christie                        Agatha      1         
+11          Dickens                         Charles     1         
+10          Hugo                            Victor      1         
+9           Hemingway                       Ernest      1   
+_______________________________________________________________________________________________________
+
+SELECT
+    AVG(loan_count) AS average_loans_per_patron
+FROM
+    (
+        SELECT
+            patron_id,
+            COUNT(*) AS loan_count
+        FROM
+            Loans
+        GROUP BY
+            patron_id
+    ) AS patron_loans;
+
+------------------------
+average_loans_per_patron
+------------------------
+1.0 
