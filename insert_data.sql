@@ -76,8 +76,12 @@ INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('Harry Potter and the Chamber of Secrets', 1, 6, 1998, 'English'),
 ('Harry Potter and the Prisoner of Azkaban', 1, 6, 1999, 'English'),
 ('Harry Potter and the Goblet of Fire', 1, 6, 2000, 'English'),
-('Animal Farm', 2, 19, 1945, 'English');
-
+('Animal Farm', 2, 19, 1945, 'English'),
+('Fantastic Beasts and Where to Find Them', 1, 6, 2001, 'English'),
+('The Tales of Beedle the Bard', 1, 6, 2008, 'English'),
+('The Black Cat', 20, 9, 1843, 'English'),
+('The Tell-Tale Heart', 20, 9, 1843, 'English'),
+('The Fall of the House of Usher', 20, 9, 1839, 'English');
 
 INSERT INTO Patrons (first_name, last_name, email, phone) VALUES
 ('Alice', 'Johnson', 'alice@example.com', '+1234567890'),
