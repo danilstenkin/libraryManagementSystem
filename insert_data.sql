@@ -20,7 +20,9 @@ INSERT INTO Genres (genre_name, genre_description, genre_popularity) VALUES
 ('War', 'Stories about battles and conflicts.', 80),
 ('Dystopian', 'Fiction about oppressive societies.', 88),
 ('Psychology', 'Books about human mind and behavior.', 79),
-('Crime', 'Stories about law enforcement and criminals.', 83);
+('Crime', 'Stories about law enforcement and criminals.', 83),
+('Data Science', 'Books about data analysis, AI, and machine learning.', 85);
+
 
 INSERT INTO Authors (first_name, last_name, birth_year, nationality) VALUES
 ('J.K.', 'Rowling', 1965, 'British'),
