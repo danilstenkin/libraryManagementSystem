@@ -64,7 +64,15 @@ INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('Don Quixote', 17, 1, 1605, 'Spanish'),
 ('Twenty Thousand Leagues Under the Sea', 18, 2, 1870, 'French'),
 ('A Study in Scarlet', 19, 4, 1887, 'English'),
-('The Raven', 20, 9, 1845, 'English');
+('The Raven', 20, 9, 1845, 'English'),
+('The Silent Patient', 1, 2, 2019, 'English'),
+('Project Hail Mary', 2, 3, 2021, 'English'),
+('The Midnight Library', 3, 1, 2020, 'English'),
+('Where the Crawdads Sing', 4, 4, 2018, 'English'),
+('Sapiens: A Brief History of Humankind', 5, 5, 2011, 'English'),
+('Cien años de soledad', 6, 6, 2014, 'Spanish'),
+('El laberinto de los espíritus', 7, 7, 2016, 'Spanish'),
+('Le Petit Prince', 8, 8, 2015, 'French');
 
 INSERT INTO Patrons (first_name, last_name, email, phone) VALUES
 ('Alice', 'Johnson', 'alice@example.com', '+1234567890'),
