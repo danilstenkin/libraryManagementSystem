@@ -57,56 +57,55 @@ book_id     title                                     author_id   genre_id    ye
 
 -> Select specific columns (title, year_published) from the Books table.
 
-----------------------------------------------------
-title       year_published                          
-----------  ----------------------------------------
-1984        1949                                    
-To Kill a   1960                                    
-Harry Pott  1997                                    
-War and Pe  1869                                    
-Pride and   1813                                    
-One Hundre  1967                                    
-The Advent  1876                                    
-Crime and   1866                                    
-The Old Ma  1952                                    
-Les Miséra  1862                                    
-Great Expe  1861                                    
-Murder on   1934                                    
-The Trial   1925                                    
-The Iliad   -760                                    
-The Divine  1320                                    
-Hamlet      1603                                    
-Don Quixot  1605                                    
-Twenty Tho  1870                                    
-A Study in  1887                                    
-The Raven   1845                                    
-The Silent  2019                                    
-Project Ha  2021                                    
-The Midnig  2020                                    
-Where the   2018                                    
-Sapiens: A  2011                                    
-Cien años   2014                                    
-El laberin  2016                                    
-Le Petit P  2015                                    
-Harry Pott  1998                                    
-Harry Pott  1999                                    
-Harry Pott  2000                                    
-Animal Far  1945                                    
-Fantastic   2001                                    
-The Tales   2008                                    
-The Black   1843                                    
-The Tell-T  1843                                    
-The Fall o  1839                                    
-Gulliver's  1726                                    
-Candide     1759                                    
-Robinson C  1719                                    
-The Sorrow  1774                                    
-The Social  1762                                    
-Mastering   2015                                    
-Big Data a  2018                                    
-Data Scien  2020                                    
-Efficient   2016                                    
-Nimitz Cla  1997
+title                                     year_published                          
+----------------------------------------  ----------------------------------------
+1984                                      1949                                    
+To Kill a Mockingbird                     1960                                    
+Harry Potter and the Sorcerers Stone      1997                                    
+War and Peace                             1869                                    
+Pride and Prejudice                       1813                                    
+One Hundred Years of Solitude             1967                                    
+The Adventures of Tom Sawyer              1876                                    
+Crime and Punishment                      1866                                    
+The Old Man and the Sea                   1952                                    
+Les Misérables                            1862                                    
+Great Expectations                        1861                                    
+Murder on the Orient Express              1934                                    
+The Trial                                 1925                                    
+The Iliad                                 -760                                    
+The Divine Comedy                         1320                                    
+Hamlet                                    1603                                    
+Don Quixote                               1605                                    
+Twenty Thousand Leagues Under the Sea     1870                                    
+A Study in Scarlet                        1887                                    
+The Raven                                 1845                                    
+The Silent Patient                        2019                                    
+Project Hail Mary                         2021                                    
+The Midnight Library                      2020                                    
+Where the Crawdads Sing                   2018                                    
+Sapiens: A Brief History of Humankind     2011                                    
+Cien años de soledad                      2014                                    
+El laberinto de los espíritus             2016                                    
+Le Petit Prince                           2015                                    
+Harry Potter and the Chamber of Secrets   1998                                    
+Harry Potter and the Prisoner of Azkaban  1999                                    
+Harry Potter and the Goblet of Fire       2000                                    
+Animal Farm                               1945                                    
+Fantastic Beasts and Where to Find Them   2001                                    
+The Tales of Beedle the Bard              2008                                    
+The Black Cat                             1843                                    
+The Tell-Tale Heart                       1843                                    
+The Fall of the House of Usher            1839                                    
+Gulliver's Travels                        1726                                    
+Candide                                   1759                                    
+Robinson Crusoe                           1719                                    
+The Sorrows of Young Werther              1774                                    
+The Social Contract                       1762                                    
+Mastering Data Structures                 2015                                    
+Big Data and Machine Learning             2018                                    
+Data Science for Beginners                2020                                    
+Efficient Data Processing                 2016                                    
+Nimitz Class                              1997       
 _______________________________________________________________________________________________________
 
 Column Operations and Aliases:
