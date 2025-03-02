@@ -418,3 +418,66 @@ patron_id   first_name            last_name   borrowed_count
 3           Charlie               Brown       5  
 _______________________________________________________________________________________________________
 
+-> 12. Single Value Subqueries
+
+SELECT
+    p.patron_id,
+    (p.first_name || ' ' || p.last_name) AS full_name,
+    g.genre_name
+FROM
+    Patrons p
+    JOIN Loans l ON p.patron_id = l.patron_id
+    JOIN books b ON l.book_id = b.book_id
+    JOIN Genres g ON b.genre_id = g.genre_id
+GROUP BY
+    p.patron_id,
+    g.genre_id
+HAVING
+    count(DISTINCT l.book_id) = (
+        SELECT
+            count(*)
+        FROM
+            books b2
+        WHERE
+            b2.genre_id = g.genre_id
+    );
+
+--------------------------------------------
+book_id     title                 loan_count
+----------  --------------------  ----------
+1           1984                  1         
+2           To Kill a Mockingbir  1         
+3           Harry Potter and the  1         
+4           War and Peace         1         
+5           Pride and Prejudice   1         
+6           One Hundred Years of  1         
+7           The Adventures of To  1         
+8           Crime and Punishment  1         
+9           The Old Man and the   1         
+10          Les Misérables        1         
+11          Great Expectations    1         
+12          Murder on the Orient  1         
+13          The Trial             1         
+14          The Iliad             1         
+15          The Divine Comedy     1         
+16          Hamlet                1         
+17          Don Quixote           1         
+18          Twenty Thousand Leag  1         
+19          A Study in Scarlet    1         
+20          The Raven             1         
+23          The Midnight Library  1         
+24          Where the Crawdads S  1         
+25          Sapiens: A Brief His  1         
+26          Cien años de soledad  1         
+27          El laberinto de los   1         
+28          Le Petit Prince       1         
+29          Harry Potter and the  1         
+30          Harry Potter and the  1         
+31          Harry Potter and the  1         
+32          Animal Farm           1         
+33          Fantastic Beasts and  1         
+34          The Tales of Beedle   1         
+35          The Black Cat         1         
+36          The Tell-Tale Heart   1         
+37          The Fall of the Hous  1  
+_______________________________________________________________________________________________________
