@@ -1,9 +1,7 @@
--> Basic SELECT Queries:
+Basic SELECT Queries:
 
-SELECT
-    *
-FROM
-    Books;
+-> Retrieve all columns from the Books table.
+
 --------------------------------------------------------------------------------------------------------
 book_id     title                                     author_id   genre_id    year_published  language  
 ----------  ----------------------------------------  ----------  ----------  --------------  ----------
@@ -27,16 +25,41 @@ book_id     title                                     author_id   genre_id    ye
 18          Twenty Thousand Leagues Under the Sea     18          2           1870            French    
 19          A Study in Scarlet                        19          4           1887            English   
 20          The Raven                                 20          9           1845            English   
-_______________________________________________________________________________________________________
+21          The Silent Patient                        1           2           2019            English   
+22          Project Hail Mary                         2           3           2021            English   
+23          The Midnight Library                      3           1           2020            English   
+24          Where the Crawdads Sing                   4           4           2018            English   
+25          Sapiens: A Brief History of Humankind     5           5           2011            English   
+26          Cien años de soledad                      6           6           2014            Spanish   
+27          El laberinto de los espíritus             7           7           2016            Spanish   
+28          Le Petit Prince                           8           8           2015            French    
+29          Harry Potter and the Chamber of Secrets   1           6           1998            English   
+30          Harry Potter and the Prisoner of Azkaban  1           6           1999            English   
+31          Harry Potter and the Goblet of Fire       1           6           2000            English   
+32          Animal Farm                               2           19          1945            English   
+33          Fantastic Beasts and Where to Find Them   1           6           2001            English   
+34          The Tales of Beedle the Bard              1           6           2008            English   
+35          The Black Cat                             20          9           1843            English   
+36          The Tell-Tale Heart                       20          9           1843            English   
+37          The Fall of the House of Usher            20          9           1839            English   
+38          Gulliver's Travels                        21          13          1726            English   
+39          Candide                                   22          15          1759            French    
+40          Robinson Crusoe                           23          13          1719            English   
+41          The Sorrows of Young Werther              24          12          1774            German    
+42          The Social Contract                       25          17          1762            French    
+43          Mastering Data Structures                 26          21          2015            English   
+44          Big Data and Machine Learning             27          21          2018            English   
+45          Data Science for Beginners                28          21          2020            English   
+46          Efficient Data Processing                 29          21          2016            English   
+47          Nimitz Class                              30          17          1997            English  
 
-SELECT
-    title,
-    year_published
-FROM
-    Books;
----------------------------
+
+
+-> Select specific columns (title, year_published) from the Books table.
+
+----------------------------------------------------
 title       year_published                          
-----------  ---------------
+----------  ----------------------------------------
 1984        1949                                    
 To Kill a   1960                                    
 Harry Pott  1997                                    
@@ -56,15 +79,39 @@ Hamlet      1603
 Don Quixot  1605                                    
 Twenty Tho  1870                                    
 A Study in  1887                                    
-The Raven   1845 
+The Raven   1845                                    
+The Silent  2019                                    
+Project Ha  2021                                    
+The Midnig  2020                                    
+Where the   2018                                    
+Sapiens: A  2011                                    
+Cien años   2014                                    
+El laberin  2016                                    
+Le Petit P  2015                                    
+Harry Pott  1998                                    
+Harry Pott  1999                                    
+Harry Pott  2000                                    
+Animal Far  1945                                    
+Fantastic   2001                                    
+The Tales   2008                                    
+The Black   1843                                    
+The Tell-T  1843                                    
+The Fall o  1839                                    
+Gulliver's  1726                                    
+Candide     1759                                    
+Robinson C  1719                                    
+The Sorrow  1774                                    
+The Social  1762                                    
+Mastering   2015                                    
+Big Data a  2018                                    
+Data Scien  2020                                    
+Efficient   2016                                    
+Nimitz Cla  1997
 _______________________________________________________________________________________________________
 
--> Column Operations and Aliases:
+Column Operations and Aliases:
 
-SELECT
-    first_name || ' ' || last_name AS "full_name"
-FROM
-    Patrons;
+-> Retrieve the full name of patrons by concatenating first_name and last_name as full_name.
 
 -------------
 full_name    
@@ -89,16 +136,9 @@ Quincy Adams
 Rebecca Black
 Samuel Landon
 Tina Turner  
-Someone New 
-_______________________________________________________________________________________________________
+Someone New
 
-SELECT
-    book_id,
-    title,
-    year_published,
-    (strftime('%Y', 'now') - year_published) AS "book_age"
-FROM
-    Books;
+-> List all books with a calculated column showing the age of the book (current_year - year_published) as book_age.
 
 --------------------------------------------------------------------------------
 book_id     title                                     year_published  book_age  
@@ -122,18 +162,39 @@ book_id     title                                     year_published  book_age
 17          Don Quixote                               1605            420       
 18          Twenty Thousand Leagues Under the Sea     1870            155       
 19          A Study in Scarlet                        1887            138       
-20          The Raven                                 1845            180  
+20          The Raven                                 1845            180       
+21          The Silent Patient                        2019            6         
+22          Project Hail Mary                         2021            4         
+23          The Midnight Library                      2020            5         
+24          Where the Crawdads Sing                   2018            7         
+25          Sapiens: A Brief History of Humankind     2011            14        
+26          Cien años de soledad                      2014            11        
+27          El laberinto de los espíritus             2016            9         
+28          Le Petit Prince                           2015            10        
+29          Harry Potter and the Chamber of Secrets   1998            27        
+30          Harry Potter and the Prisoner of Azkaban  1999            26        
+31          Harry Potter and the Goblet of Fire       2000            25        
+32          Animal Farm                               1945            80        
+33          Fantastic Beasts and Where to Find Them   2001            24        
+34          The Tales of Beedle the Bard              2008            17        
+35          The Black Cat                             1843            182       
+36          The Tell-Tale Heart                       1843            182       
+37          The Fall of the House of Usher            1839            186       
+38          Gulliver's Travels                        1726            299       
+39          Candide                                   1759            266       
+40          Robinson Crusoe                           1719            306       
+41          The Sorrows of Young Werther              1774            251       
+42          The Social Contract                       1762            263       
+43          Mastering Data Structures                 2015            10        
+44          Big Data and Machine Learning             2018            7         
+45          Data Science for Beginners                2020            5         
+46          Efficient Data Processing                 2016            9         
+47          Nimitz Class                              1997            28      
 _______________________________________________________________________________________________________
 
--> Filtering Data
+Filtering Data:
 
-SELECT
-    book_id,
-    title
-FROM
-    Books
-WHERE
-    year_published > 2000;
+-> Find all books published after the year 2000
 
 ----------------------------------------------------
 book_id     title                                   
@@ -145,339 +206,414 @@ book_id     title
 25          Sapiens: A Brief History of Humankind   
 26          Cien años de soledad                    
 27          El laberinto de los espíritus           
-28          Le Petit Prince  
+28          Le Petit Prince                         
+33          Fantastic Beasts and Where to Find Them 
+34          The Tales of Beedle the Bard            
+43          Mastering Data Structures               
+44          Big Data and Machine Learning           
+45          Data Science for Beginners              
+46          Efficient Data Processing
+
+-> List all patrons with the last name 'Smith' 
+
+----------------------------------------------------------------
+patron_id   first_name                                last_name 
+----------  ----------------------------------------  ----------
+2           Bob                                       Smith     
 _______________________________________________________________________________________________________
 
-SELECT
-    patron_id,
-    first_name,
-    last_name
-FROM
-    Patrons
-WHERE
-    last_name = 'Smith';
+Pattern Matching and Sorting:
 
-----------------------------------
-patron_id   first_name  last_name 
-----------  ----------  ----------
-2           Bob         Smith 
+-> Find all books with titles starting with 'The'
+
+----------------------------------------------------
+book_id     title                                   
+----------  ----------------------------------------
+23          The Midnight Library                    
+21          The Silent Patient                      
+34          The Tales of Beedle the Bard            
+9           The Old Man and the Sea                 
+13          The Trial                               
+7           The Adventures of Tom Sawyer            
+20          The Raven                               
+35          The Black Cat                           
+36          The Tell-Tale Heart                     
+37          The Fall of the House of Usher          
+41          The Sorrows of Young Werther            
+42          The Social Contract                     
+15          The Divine Comedy                       
+14          The Iliad         
 _______________________________________________________________________________________________________
 
--> Pattern Matching and Sorting:
+Text Operations:
 
-SELECT
-    book_id,
-    title
-FROM
-    Books
-WHERE
-    title LIKE 'The%'
-ORDER BY
-    year_published DESC;
+-> Display all patron emails in uppercase
 
-----------------------
-book_id     title     
-----------  ----------
-23          The Midnig
-21          The Silent
-9           The Old Ma
-13          The Trial 
-7           The Advent
-20          The Raven 
-15          The Divine
-14          The Iliad 
+----------------------------------------------------
+patron_id   upper(email)                            
+----------  ----------------------------------------
+1           ALICE@EXAMPLE.COM                       
+2           BOB@EXAMPLE.COM                         
+3           CHARLIE@EXAMPLE.COM                     
+4           DIANA@EXAMPLE.COM                       
+5           ETHAN@EXAMPLE.COM                       
+6           FIONA@EXAMPLE.COM                       
+7           GEORGE@EXAMPLE.COM                      
+8           HANNAH@EXAMPLE.COM                      
+9           IAN@EXAMPLE.COM                         
+10          JULIA@EXAMPLE.COM                       
+11          KEVIN@EXAMPLE.COM                       
+12          LAURA@EXAMPLE.COM                       
+13          MICHAEL@EXAMPLE.COM                     
+14          NANCY@EXAMPLE.COM                       
+15          OLIVER@EXAMPLE.COM                      
+16          PAULA@EXAMPLE.COM                       
+17          QUINCY@EXAMPLE.COM                      
+21          RANDOM.EMAIL@GMAIL.COM                  
+18          REBECCA@EXAMPLE.COM                     
+19          SAMUEL@EXAMPLE.COM                      
+20          TINA@EXAMPLE.COM       
+
+
+-> Find all patrons whose first name ends with 'a'
+
+----------------------------------------------------------------
+patron_id   first_name                                last_name 
+----------  ----------------------------------------  ----------
+4           Diana                                     Prince    
+6           Fiona                                     Davis     
+10          Julia                                     Roberts   
+12          Laura                                     Wilson    
+16          Paula                                     Jones     
+18          Rebecca                                   Black     
+20          Tina                                      Turner    
 _______________________________________________________________________________________________________
 
--> Text Operations:
+Unique Values:
 
-SELECT
-    patron_id,
-    upper(email)
-FROM
-    Patrons;
+-> List all unique genres available in the Books table.
 
-------------------------------------------
-patron_id   upper(email)                  
-----------  ------------------------------
-1           ALICE@EXAMPLE.COM             
-2           BOB@EXAMPLE.COM               
-3           CHARLIE@EXAMPLE.COM           
-4           DIANA@EXAMPLE.COM             
-5           ETHAN@EXAMPLE.COM             
-6           FIONA@EXAMPLE.COM             
-7           GEORGE@EXAMPLE.COM            
-8           HANNAH@EXAMPLE.COM            
-9           IAN@EXAMPLE.COM               
-10          JULIA@EXAMPLE.COM             
-11          KEVIN@EXAMPLE.COM             
-12          LAURA@EXAMPLE.COM             
-13          MICHAEL@EXAMPLE.COM           
-14          NANCY@EXAMPLE.COM             
-15          OLIVER@EXAMPLE.COM            
-16          PAULA@EXAMPLE.COM             
-17          QUINCY@EXAMPLE.COM            
-21          RANDOM.EMAIL@GMAIL.COM        
-18          REBECCA@EXAMPLE.COM           
-19          SAMUEL@EXAMPLE.COM            
-20          TINA@EXAMPLE.COM      
+----------------------------------------------------
+genre_id    genre_name                              
+----------  ----------------------------------------
+13          Adventure                               
+8           Biography                               
+3           Classic                                 
+16          Comedy                                  
+21          Data Science                            
+12          Drama                                   
+18          Dystopian                               
+6           Fantasy                                 
+1           Fiction                                 
+5           Historical                              
+9           Horror                                  
+4           Mystery                                 
+15          Philosophy                              
+19          Psychology                              
+2           Science Fiction                         
+14          Self-Help                               
+7           Thriller                                
+17          War          
 _______________________________________________________________________________________________________
 
-SELECT
-    patron_id,
-    first_name,
-    last_name
-FROM
-    Patrons
-WHERE
-    first_name LIKE '%a';
+Aggregate Functions:
 
-----------------------------------
-patron_id   first_name  last_name 
-----------  ----------  ----------
-4           Diana       Prince    
-6           Fiona       Davis     
-10          Julia       Roberts   
-12          Laura       Wilson    
-16          Paula       Jones     
-18          Rebecca     Black     
-20          Tina        Turner 
-
-_______________________________________________________________________________________________________
-
--> Unique Values:
-
-SELECT
-    DISTINCT g.genre_id,
-    g.genre_name
-FROM
-    Books b
-    JOIN Genres g ON b.genre_id = g.genre_id
-ORDER BY
-    g.genre_name;
-
-------------------------------------------
-genre_id    genre_name                    
-----------  ------------------------------
-13          Adventure                     
-8           Biography                     
-3           Classic                       
-16          Comedy                        
-18          Dystopian                     
-6           Fantasy                       
-1           Fiction                       
-5           Historical                    
-9           Horror                        
-4           Mystery                       
-15          Philosophy                    
-19          Psychology                    
-2           Science Fiction               
-14          Self-Help                     
-7           Thriller                      
-17          War 
-_______________________________________________________________________________________________________
-
--> Aggregate Functions:
-
-SELECT
-    count(book_id) AS "total_number_of_books"
-FROM
-    Books;
+-> Calculate the total number of books in the library
 
 ---------------------
 total_number_of_books
 ---------------------
-28 
+47
+
+-> Find the oldest book in the library
+
+--------------------------------------------------------------------
+book_id     oldest_book                               year_published
+----------  ----------------------------------------  --------------
+14          The Iliad                                 -760    
 _______________________________________________________________________________________________________
 
-SELECT
-    book_id,
-    title AS "oldest_book",
-    year_published
-FROM
-    Books
-WHERE
-    year_published = (
-        SELECT
-            MIN(year_published)
-        FROM
-            Books
-    )
-LIMIT
-    1;
+Grouping Operations:
 
-----------------------------------------------------------
-book_id     oldest_book                     year_published
-----------  ------------------------------  --------------
-14          The Iliad                       -760     
-_______________________________________________________________________________________________________
+-> Count the number of books per author
 
--> Grouping Operations:
+----------------------------------------------------------------------------
+author_id   last_name                                 first_name  book_count
+----------  ----------------------------------------  ----------  ----------
+1           Rowling                                   J.K.        7         
+20          Poe                                       Edgar       4         
+2           Orwell                                    George      3         
+8           Dostoevsky                                Fyodor      2         
+7           Twain                                     Mark        2         
+6           García Márquez                            Gabriel     2         
+5           Austen                                    Jane        2         
+4           Tolstoy                                   Leo         2         
+3           Lee                                       Harper      2         
+30          Robinson                                  Patrick     1         
+29          Harrison                                  David       1         
+28          Anderson                                  Michael     1         
+27          Watson                                    Lisa        1         
+26          Johnson                                   Andrew      1         
+25          Rousseau                                  Jean-Jacqu  1         
+24          von Goethe                                Johann Wol  1         
+23          Defoe                                     Daniel      1         
+22          Arouet                                    Voltaire    1         
+21          Swift                                     Jonathan    1         
+19          Conan Doyle                               Arthur      1         
+18          Verne                                     Jules       1         
+17          de Cervantes                              Miguel      1         
+16          Shakespeare                               William     1         
+15          Alighieri                                 Dante       1         
+14          Unknown                                   Homer       1         
+13          Kafka                                     Franz       1         
+12          Christie                                  Agatha      1         
+11          Dickens                                   Charles     1         
+10          Hugo                                      Victor      1         
+9           Hemingway                                 Ernest      1  
 
-SELECT
-    a.author_id,
-    a.last_name,
-    a.first_name,
-    COUNT(*) AS book_count
-FROM
-    Books b
-    JOIN Authors a ON b.author_id = a.author_id
-GROUP BY
-    b.author_id
-ORDER BY
-    book_count DESC;
-
-------------------------------------------------------------------
-author_id   last_name                       first_name  book_count
-----------  ------------------------------  ----------  ----------
-8           Dostoevsky                      Fyodor      2         
-7           Twain                           Mark        2         
-6           García Márquez                  Gabriel     2         
-5           Austen                          Jane        2         
-4           Tolstoy                         Leo         2         
-3           Lee                             Harper      2         
-2           Orwell                          George      2         
-1           Rowling                         J.K.        2         
-20          Poe                             Edgar       1         
-19          Conan Doyle                     Arthur      1         
-18          Verne                           Jules       1         
-17          de Cervantes                    Miguel      1         
-16          Shakespeare                     William     1         
-15          Alighieri                       Dante       1         
-14          Unknown                         Homer       1         
-13          Kafka                           Franz       1         
-12          Christie                        Agatha      1         
-11          Dickens                         Charles     1         
-10          Hugo                            Victor      1         
-9           Hemingway                       Ernest      1   
-_______________________________________________________________________________________________________
-
-SELECT
-    AVG(loan_count) AS average_loans_per_patron
-FROM
-    (
-        SELECT
-            patron_id,
-            COUNT(*) AS loan_count
-        FROM
-            Loans
-        GROUP BY
-            patron_id
-    ) AS patron_loans;
+-> Find the average number of books loaned per patron.
 
 ------------------------
 average_loans_per_patron
 ------------------------
-1.75
+1.75         
+_______________________________________________________________________________________________________  
+
+Filtering Groups:
+
+-> List authors who have written more than 2 books.
+
+----------------------------------------------------------------------------
+author_id   first_name                                last_name   book_count
+----------  ----------------------------------------  ----------  ----------
+1           J.K.                                      Rowling     7         
+20          Edgar                                     Poe         4         
+2           George                                    Orwell      3   
+
+-> Find patrons who have borrowed more than 3 books.
+
+--------------------------------------------------------------------------------
+patron_id   first_name                                last_name   borrowed_count
+----------  ----------------------------------------  ----------  --------------
+1           Alice                                     Johnson     7             
+4           Diana                                     Prince      6             
+3           Charlie                                   Brown       5    
+
 _______________________________________________________________________________________________________
 
--> Filtering Groups:
+Single Value Subqueries:
 
-SELECT
-    b.author_id,
-    a.first_name,
-    a.last_name,
-    COUNT(*) AS book_count
-FROM
-    Books b
-    JOIN Authors a ON b.author_id = a.author_id
-GROUP BY
-    b.author_id
-HAVING
-    COUNT(*) > 2
-ORDER BY
-    book_count DESC;
+-> Find the book(s) with the highest number of loans.
 
---------------------------------------------------------
-author_id   first_name            last_name   book_count
-----------  --------------------  ----------  ----------
-1           J.K.                  Rowling     7         
-20          Edgar                 Poe         4         
-2           George                Orwell      3 
+----------------------------------------------------------------
+book_id     title                                     loan_count
+----------  ----------------------------------------  ----------
+1           1984                                      1         
+2           To Kill a Mockingbird                     1         
+3           Harry Potter and the Sorcerers Stone      1         
+4           War and Peace                             1         
+5           Pride and Prejudice                       1         
+6           One Hundred Years of Solitude             1         
+7           The Adventures of Tom Sawyer              1         
+8           Crime and Punishment                      1         
+9           The Old Man and the Sea                   1         
+10          Les Misérables                            1         
+11          Great Expectations                        1         
+12          Murder on the Orient Express              1         
+13          The Trial                                 1         
+14          The Iliad                                 1         
+15          The Divine Comedy                         1         
+16          Hamlet                                    1         
+17          Don Quixote                               1         
+18          Twenty Thousand Leagues Under the Sea     1         
+19          A Study in Scarlet                        1         
+20          The Raven                                 1         
+23          The Midnight Library                      1         
+24          Where the Crawdads Sing                   1         
+25          Sapiens: A Brief History of Humankind     1         
+26          Cien años de soledad                      1         
+27          El laberinto de los espíritus             1         
+28          Le Petit Prince                           1         
+29          Harry Potter and the Chamber of Secrets   1         
+30          Harry Potter and the Prisoner of Azkaban  1         
+31          Harry Potter and the Goblet of Fire       1         
+32          Animal Farm                               1         
+33          Fantastic Beasts and Where to Find Them   1         
+34          The Tales of Beedle the Bard              1         
+35          The Black Cat                             1         
+36          The Tell-Tale Heart                       1         
+37          The Fall of the House of Usher            1         
 _______________________________________________________________________________________________________
 
-SELECT
-    l.patron_id,
-    p.first_name,
-    p.last_name,
-    COUNT(*) AS borrowed_count
-FROM
-    Loans l
-    JOIN Patrons p ON l.patron_id = p.patron_id
-GROUP BY
-    l.patron_id
-HAVING
-    COUNT(*) > 3
-ORDER BY
-    borrowed_count DESC;
+Correlated Subqueries:
 
-------------------------------------------------------------
-patron_id   first_name            last_name   borrowed_count
-----------  --------------------  ----------  --------------
-1           Alice                 Johnson     7             
-4           Diana                 Prince      6             
-3           Charlie               Brown       5  
+-> Find all patrons who have borrowed every book in one of the genres.
+
+----------------------------------------------------------------
+patron_id   full_name                                 genre_name
+----------  ----------------------------------------  ----------
+1           Alice Johnson                             Biography 
+3           Charlie Brown                             Thriller  
+9           Ian Wright                                Self-Help 
+13          Michael Scott                             Dystopian 
+16          Paula Jones                               Comedy 
 _______________________________________________________________________________________________________
 
--> 12. Single Value Subqueries
+Nested Aggregates:
 
-SELECT
-    p.patron_id,
-    (p.first_name || ' ' || p.last_name) AS full_name,
-    g.genre_name
-FROM
-    Patrons p
-    JOIN Loans l ON p.patron_id = l.patron_id
-    JOIN books b ON l.book_id = b.book_id
-    JOIN Genres g ON b.genre_id = g.genre_id
-GROUP BY
-    p.patron_id,
-    g.genre_id
-HAVING
-    count(DISTINCT l.book_id) = (
-        SELECT
-            count(*)
-        FROM
-            books b2
-        WHERE
-            b2.genre_id = g.genre_id
-    );
+-> For each author, display their name and the average age of their books.
 
---------------------------------------------
-book_id     title                 loan_count
-----------  --------------------  ----------
-1           1984                  1         
-2           To Kill a Mockingbir  1         
-3           Harry Potter and the  1         
-4           War and Peace         1         
-5           Pride and Prejudice   1         
-6           One Hundred Years of  1         
-7           The Adventures of To  1         
-8           Crime and Punishment  1         
-9           The Old Man and the   1         
-10          Les Misérables        1         
-11          Great Expectations    1         
-12          Murder on the Orient  1         
-13          The Trial             1         
-14          The Iliad             1         
-15          The Divine Comedy     1         
-16          Hamlet                1         
-17          Don Quixote           1         
-18          Twenty Thousand Leag  1         
-19          A Study in Scarlet    1         
-20          The Raven             1         
-23          The Midnight Library  1         
-24          Where the Crawdads S  1         
-25          Sapiens: A Brief His  1         
-26          Cien años de soledad  1         
-27          El laberinto de los   1         
-28          Le Petit Prince       1         
-29          Harry Potter and the  1         
-30          Harry Potter and the  1         
-31          Harry Potter and the  1         
-32          Animal Farm           1         
-33          Fantastic Beasts and  1         
-34          The Tales of Beedle   1         
-35          The Black Cat         1         
-36          The Tell-Tale Heart   1         
-37          The Fall of the Hous  1  
+author_id   author_name                               average_book_age
+----------  ----------------------------------------  ----------------
+14          Homer Unknown                             2785.0          
+15          Dante Alighieri                           705.0           
+16          William Shakespeare                       422.0           
+17          Miguel de Cervantes                       420.0           
+23          Daniel Defoe                              306.0           
+21          Jonathan Swift                            299.0           
+22          Voltaire Arouet                           266.0           
+25          Jean-Jacques Rousseau                     263.0           
+24          Johann Wolfgang von Goethe                251.0           
+20          Edgar Poe                                 182.5           
+11          Charles Dickens                           164.0           
+10          Victor Hugo                               163.0           
+18          Jules Verne                               155.0           
+19          Arthur Conan Doyle                        138.0           
+5           Jane Austen                               113.0           
+13          Franz Kafka                               100.0           
+12          Agatha Christie                           91.0            
+8           Fyodor Dostoevsky                         84.5            
+4           Leo Tolstoy                               81.5            
+7           Mark Twain                                79.0            
+9           Ernest Hemingway                          73.0            
+2           George Orwell                             53.333          
+3           Harper Lee                                35.0            
+6           Gabriel García Márquez                    34.5            
+30          Patrick Robinson                          28.0            
+1           J.K. Rowling                              21.857          
+26          Andrew Johnson                            10.0            
+29          David Harrison                            9.0             
+27          Lisa Watson                               7.0             
+28          Michael Anderson                          5.0      
 _______________________________________________________________________________________________________
+
+Complex Filtering:
+
+-> Find all books that have never been borrowed and were published before the average publication year of all books
+
+--------------------------------------------------------------------
+book_id     title                                     year_published
+----------  ----------------------------------------  --------------
+40          Robinson Crusoe                           1719          
+38          Gulliver's Travels                        1726          
+39          Candide                                   1759          
+42          The Social Contract                       1762          
+41          The Sorrows of Young Werther              1774          
+_______________________________________________________________________________________________________
+
+Conditional Aggregation:
+
+-> For each patron, display their name and the total number of books borrowed, but only include books published after 2010
+
+--------------------------------------------------------------------------------------
+patron_id   full_name                                 total_books_published_after_2010
+----------  ----------------------------------------  --------------------------------
+1           Alice Johnson                             2                               
+2           Bob Smith                                 0                               
+3           Charlie Brown                             2                               
+4           Diana Prince                              2                               
+5           Ethan Hunt                                0                               
+6           Fiona Davis                               0                               
+7           George Clark                              0                               
+8           Hannah Miller                             0                               
+9           Ian Wright                                0                               
+10          Julia Roberts                             0                               
+11          Kevin Anderson                            0                               
+12          Laura Wilson                              0                               
+13          Michael Scott                             0                               
+14          Nancy Drew                                0                               
+15          Oliver Twist                              0                               
+16          Paula Jones                               0                               
+17          Quincy Adams                              0                               
+18          Rebecca Black                             0                               
+19          Samuel Landon                             0                               
+20          Tina Turner                               0                    
+_______________________________________________________________________________________________________
+
+Subqueries in SELECT Clause:
+
+-> List all books along with the number of times each has been borrowed.
+
+------------------------------------------------------------------------------
+book_id     title                                     number_of_times_borrowed
+----------  ----------------------------------------  ------------------------
+1           1984                                      1                       
+2           To Kill a Mockingbird                     1                       
+3           Harry Potter and the Sorcerers Stone      1                       
+4           War and Peace                             1                       
+5           Pride and Prejudice                       1                       
+6           One Hundred Years of Solitude             1                       
+7           The Adventures of Tom Sawyer              1                       
+8           Crime and Punishment                      1                       
+9           The Old Man and the Sea                   1                       
+10          Les Misérables                            1                       
+11          Great Expectations                        1                       
+12          Murder on the Orient Express              1                       
+13          The Trial                                 1                       
+14          The Iliad                                 1                       
+15          The Divine Comedy                         1                       
+16          Hamlet                                    1                       
+17          Don Quixote                               1                       
+18          Twenty Thousand Leagues Under the Sea     1                       
+19          A Study in Scarlet                        1                       
+20          The Raven                                 1                       
+23          The Midnight Library                      1                       
+24          Where the Crawdads Sing                   1                       
+25          Sapiens: A Brief History of Humankind     1                       
+26          Cien años de soledad                      1                       
+27          El laberinto de los espíritus             1                       
+28          Le Petit Prince                           1                       
+29          Harry Potter and the Chamber of Secrets   1                       
+30          Harry Potter and the Prisoner of Azkaban  1                       
+31          Harry Potter and the Goblet of Fire       1                       
+32          Animal Farm                               1                       
+33          Fantastic Beasts and Where to Find Them   1                       
+34          The Tales of Beedle the Bard              1                       
+35          The Black Cat                             1                       
+36          The Tell-Tale Heart                       1                       
+37          The Fall of the House of Usher            1
+_______________________________________________________________________________________________________
+
+Advanced Pattern Matching:
+
+-> Find all authors whose last name contains the letter sequence 'son' and who have written at least one book with 'Data' in the title.
+
+----------------------------------------------------------------
+author_id   first_name                                last_name 
+----------  ----------------------------------------  ----------
+28          Michael                                   Anderson  
+29          David                                     Harrison  
+26          Andrew                                    Johnson   
+27          Lisa                                      Watson   
+_______________________________________________________________________________________________________
+
+Combined Aggregate Functions:
+
+-> Find the genre with the highest average book age.
+
+----------------------------------------------------------------------
+genre_id    genre_name                                average_book_age
+----------  ----------------------------------------  ----------------
+17          War                                       1025.33
+_______________________________________________________________________________________________________
+
+Nested Subqueries and Aggregation:
+
+-> List all patrons who have borrowed more books than the average number of books borrowed by all patrons.
+
+--------------------------------------------------------------------
+patron_id   patron_name                               books_borrowed
+----------  ----------------------------------------  --------------
+1           Alice Johnson                             7             
+4           Diana Prince                              6             
+3           Charlie Brown                             5             

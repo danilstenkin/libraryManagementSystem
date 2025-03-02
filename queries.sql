@@ -227,7 +227,7 @@ HAVING
 SELECT
     a.author_id,
     a.first_name || ' ' || a.last_name AS author_name,
-    AVG(2025 - b.year_published) AS average_book_age
+    ROUND(AVG(2025 - b.year_published), 3) AS average_book_age
 FROM
     authors a
     JOIN books b ON a.author_id = b.author_id
@@ -322,7 +322,7 @@ ORDER BY
 SELECT
     g.genre_id,
     g.genre_name,
-    AVG(2025 - b.year_published) AS average_book_age
+    ROUND(AVG(2025 - b.year_published), 2) AS average_book_age
 FROM
     Genres g
     JOIN Books b ON g.genre_id = b.genre_id
