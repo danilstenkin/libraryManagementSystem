@@ -93,7 +93,12 @@ INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('Candide', 22, 15, 1759, 'French'),
 ('Robinson Crusoe', 23, 13, 1719, 'English'),
 ('The Sorrows of Young Werther', 24, 12, 1774, 'German'),
-('The Social Contract', 25, 17, 1762, 'French');
+('The Social Contract', 25, 17, 1762, 'French'),
+('Mastering Data Structures', 26, 19, 2015, 'English'),
+('Big Data and Machine Learning', 27, 2, 2018, 'English'),
+('Data Science for Beginners', 28, 19, 2020, 'English'),
+('Efficient Data Processing', 29 19, 2016, 'English');
+
 
 INSERT INTO Patrons (first_name, last_name, email, phone) VALUES
 ('Alice', 'Johnson', 'alice@example.com', '+1234567890'),
