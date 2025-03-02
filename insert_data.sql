@@ -72,7 +72,12 @@ INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('Sapiens: A Brief History of Humankind', 5, 5, 2011, 'English'),
 ('Cien años de soledad', 6, 6, 2014, 'Spanish'),
 ('El laberinto de los espíritus', 7, 7, 2016, 'Spanish'),
-('Le Petit Prince', 8, 8, 2015, 'French');
+('Le Petit Prince', 8, 8, 2015, 'French'),
+('Harry Potter and the Chamber of Secrets', 1, 6, 1998, 'English'),
+('Harry Potter and the Prisoner of Azkaban', 1, 6, 1999, 'English'),
+('Harry Potter and the Goblet of Fire', 1, 6, 2000, 'English'),
+('Animal Farm', 2, 19, 1945, 'English');
+
 
 INSERT INTO Patrons (first_name, last_name, email, phone) VALUES
 ('Alice', 'Johnson', 'alice@example.com', '+1234567890'),
