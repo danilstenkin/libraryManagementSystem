@@ -368,3 +368,28 @@ FROM
 average_loans_per_patron
 ------------------------
 1.0 
+_______________________________________________________________________________________________________
+
+-> Filtering Groups:
+
+SELECT
+    b.author_id,
+    a.first_name,
+    a.last_name,
+    COUNT(*) AS book_count
+FROM
+    Books b
+    JOIN Authors a ON b.author_id = a.author_id
+GROUP BY
+    b.author_id
+HAVING
+    COUNT(*) > 2
+ORDER BY
+    book_count DESC;
+
+----------------------------------------------
+author_id   first_name  last_name   book_count
+----------  ----------  ----------  ----------
+1           J.K.        Rowling     5         
+2           George      Orwell      3     
+_______________________________________________________________________________________________________
