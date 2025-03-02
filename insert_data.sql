@@ -42,7 +42,12 @@ INSERT INTO Authors (first_name, last_name, birth_year, nationality) VALUES
 ('Miguel', 'de Cervantes', 1547, 'Spanish'),
 ('Jules', 'Verne', 1828, 'French'),
 ('Arthur', 'Conan Doyle', 1859, 'British'),
-('Edgar', 'Poe', 1809, 'American');
+('Edgar', 'Poe', 1809, 'American'),
+('Jonathan', 'Swift', 1667, 'Irish'),
+('Voltaire', 'Arouet', 1694, 'French'),
+('Daniel', 'Defoe', 1660, 'British'),
+('Johann Wolfgang', 'von Goethe', 1749, 'German'),
+('Jean-Jacques', 'Rousseau', 1712, 'Swiss');
 
 INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('1984', 2, 19, 1949, 'English'),
@@ -113,4 +118,5 @@ INSERT INTO Loans (book_id, patron_id, loan_period_days) VALUES
 (29, 1, 30), (30, 1, 30), (31, 1, 30), (32, 4, 15), (34, 4, 20),
 (35, 4, 22), (33, 1, 30), (36, 3, 5), (37, 3, 10), (28, 1, 25),
 (27, 3, 20), (26, 3, 16), (25, 4, 5), (24, 1, 13), (23, 4, 10);
+
 
