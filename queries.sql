@@ -314,7 +314,7 @@ FROM
     JOIN Patrons p ON l.patron_id = p.patron_id
 WHERE
     l.return_date IS NULL
-    AND julianday('now') - julianday(l.due_date) > 30
+    AND days_overdue > 30
 ORDER BY
     days_overdue DESC;
 
