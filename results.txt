@@ -367,7 +367,7 @@ FROM
 ------------------------
 average_loans_per_patron
 ------------------------
-1.0 
+1.75
 _______________________________________________________________________________________________________
 
 -> Filtering Groups:
@@ -387,9 +387,34 @@ HAVING
 ORDER BY
     book_count DESC;
 
-----------------------------------------------
-author_id   first_name  last_name   book_count
-----------  ----------  ----------  ----------
-1           J.K.        Rowling     5         
-2           George      Orwell      3     
+--------------------------------------------------------
+author_id   first_name            last_name   book_count
+----------  --------------------  ----------  ----------
+1           J.K.                  Rowling     7         
+20          Edgar                 Poe         4         
+2           George                Orwell      3 
 _______________________________________________________________________________________________________
+
+SELECT
+    l.patron_id,
+    p.first_name,
+    p.last_name,
+    COUNT(*) AS borrowed_count
+FROM
+    Loans l
+    JOIN Patrons p ON l.patron_id = p.patron_id
+GROUP BY
+    l.patron_id
+HAVING
+    COUNT(*) > 3
+ORDER BY
+    borrowed_count DESC;
+
+------------------------------------------------------------
+patron_id   first_name            last_name   borrowed_count
+----------  --------------------  ----------  --------------
+1           Alice                 Johnson     7             
+4           Diana                 Prince      6             
+3           Charlie               Brown       5  
+_______________________________________________________________________________________________________
+
