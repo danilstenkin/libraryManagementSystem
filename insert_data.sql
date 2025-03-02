@@ -53,7 +53,8 @@ INSERT INTO Authors (first_name, last_name, birth_year, nationality) VALUES
 ('Andrew', 'Johnson', 1975, 'American'),
 ('Lisa', 'Watson', 1983, 'British'),
 ('Michael', 'Anderson', 1968, 'Canadian'),
-('David', 'Harrison', 1990, 'Australian');
+('David', 'Harrison', 1990, 'Australian'),
+('Patrick', 'Robinson', 1940, 'British');
 
 INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('1984', 2, 19, 1949, 'English'),
