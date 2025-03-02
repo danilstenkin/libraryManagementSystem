@@ -86,7 +86,12 @@ INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('The Tales of Beedle the Bard', 1, 6, 2008, 'English'),
 ('The Black Cat', 20, 9, 1843, 'English'),
 ('The Tell-Tale Heart', 20, 9, 1843, 'English'),
-('The Fall of the House of Usher', 20, 9, 1839, 'English');
+('The Fall of the House of Usher', 20, 9, 1839, 'English'),
+('Gulliver''s Travels', 21, 13, 1726, 'English'),
+('Candide', 22, 15, 1759, 'French'),
+('Robinson Crusoe', 23, 13, 1719, 'English'),
+('The Sorrows of Young Werther', 24, 12, 1774, 'German'),
+('The Social Contract', 25, 17, 1762, 'French');
 
 INSERT INTO Patrons (first_name, last_name, email, phone) VALUES
 ('Alice', 'Johnson', 'alice@example.com', '+1234567890'),
@@ -118,5 +123,3 @@ INSERT INTO Loans (book_id, patron_id, loan_period_days) VALUES
 (29, 1, 30), (30, 1, 30), (31, 1, 30), (32, 4, 15), (34, 4, 20),
 (35, 4, 22), (33, 1, 30), (36, 3, 5), (37, 3, 10), (28, 1, 25),
 (27, 3, 20), (26, 3, 16), (25, 4, 5), (24, 1, 13), (23, 4, 10);
-
-
