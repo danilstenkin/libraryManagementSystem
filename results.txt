@@ -162,3 +162,116 @@ patron_id   first_name  last_name
 ----------  ----------  ----------
 2           Bob         Smith 
 _______________________________________________________________________________________________________
+
+-> Pattern Matching and Sorting:
+
+SELECT
+    book_id,
+    title
+FROM
+    Books
+WHERE
+    title LIKE 'The%'
+ORDER BY
+    year_published DESC;
+
+----------------------
+book_id     title     
+----------  ----------
+23          The Midnig
+21          The Silent
+9           The Old Ma
+13          The Trial 
+7           The Advent
+20          The Raven 
+15          The Divine
+14          The Iliad 
+_______________________________________________________________________________________________________
+
+-> Text Operations:
+
+SELECT
+    patron_id,
+    upper(email)
+FROM
+    Patrons;
+
+------------------------------------------
+patron_id   upper(email)                  
+----------  ------------------------------
+1           ALICE@EXAMPLE.COM             
+2           BOB@EXAMPLE.COM               
+3           CHARLIE@EXAMPLE.COM           
+4           DIANA@EXAMPLE.COM             
+5           ETHAN@EXAMPLE.COM             
+6           FIONA@EXAMPLE.COM             
+7           GEORGE@EXAMPLE.COM            
+8           HANNAH@EXAMPLE.COM            
+9           IAN@EXAMPLE.COM               
+10          JULIA@EXAMPLE.COM             
+11          KEVIN@EXAMPLE.COM             
+12          LAURA@EXAMPLE.COM             
+13          MICHAEL@EXAMPLE.COM           
+14          NANCY@EXAMPLE.COM             
+15          OLIVER@EXAMPLE.COM            
+16          PAULA@EXAMPLE.COM             
+17          QUINCY@EXAMPLE.COM            
+21          RANDOM.EMAIL@GMAIL.COM        
+18          REBECCA@EXAMPLE.COM           
+19          SAMUEL@EXAMPLE.COM            
+20          TINA@EXAMPLE.COM      
+_______________________________________________________________________________________________________
+
+SELECT
+    patron_id,
+    first_name,
+    last_name
+FROM
+    Patrons
+WHERE
+    first_name LIKE '%a';
+
+----------------------------------
+patron_id   first_name  last_name 
+----------  ----------  ----------
+4           Diana       Prince    
+6           Fiona       Davis     
+10          Julia       Roberts   
+12          Laura       Wilson    
+16          Paula       Jones     
+18          Rebecca     Black     
+20          Tina        Turner 
+
+_______________________________________________________________________________________________________
+
+-- Unique Values:
+
+SELECT
+    DISTINCT g.genre_id,
+    g.genre_name
+FROM
+    Books b
+    JOIN Genres g ON b.genre_id = g.genre_id
+ORDER BY
+    g.genre_name;
+
+------------------------------------------
+genre_id    genre_name                    
+----------  ------------------------------
+13          Adventure                     
+8           Biography                     
+3           Classic                       
+16          Comedy                        
+18          Dystopian                     
+6           Fantasy                       
+1           Fiction                       
+5           Historical                    
+9           Horror                        
+4           Mystery                       
+15          Philosophy                    
+19          Psychology                    
+2           Science Fiction               
+14          Self-Help                     
+7           Thriller                      
+17          War 
+_______________________________________________________________________________________________________
