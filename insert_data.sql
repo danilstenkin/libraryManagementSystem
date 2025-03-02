@@ -49,7 +49,11 @@ INSERT INTO Authors (first_name, last_name, birth_year, nationality) VALUES
 ('Voltaire', 'Arouet', 1694, 'French'),
 ('Daniel', 'Defoe', 1660, 'British'),
 ('Johann Wolfgang', 'von Goethe', 1749, 'German'),
-('Jean-Jacques', 'Rousseau', 1712, 'Swiss');
+('Jean-Jacques', 'Rousseau', 1712, 'Swiss'),
+('Andrew', 'Johnson', 1975, 'American'),
+('Lisa', 'Watson', 1983, 'British'),
+('Michael', 'Anderson', 1968, 'Canadian'),
+('David', 'Harrison', 1990, 'Australian');
 
 INSERT INTO Books (title, author_id, genre_id, year_published, language) VALUES
 ('1984', 2, 19, 1949, 'English'),
